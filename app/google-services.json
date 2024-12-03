@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "401625483136",
+    "firebase_url": "https://primerejerciciprueba2-default-rtdb.firebaseio.com",
+    "project_id": "primerejerciciprueba2",
+    "storage_bucket": "primerejerciciprueba2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401625483136:android:a26d0db279cd50bca02365",
+        "android_client_info": {
+          "package_name": "com.example.ejercicio1_pruebaprogramacionandroid2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUTFh1GpujaJivltyDUJtzXaR65b13fNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
