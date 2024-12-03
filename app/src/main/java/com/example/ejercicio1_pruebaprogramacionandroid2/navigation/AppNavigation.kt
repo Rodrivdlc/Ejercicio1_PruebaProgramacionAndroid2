@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.ejercicio1_pruebaprogramacionandroid2.screens.AddClassScreen
 import com.example.ejercicio1_pruebaprogramacionandroid2.screens.MainScreen
+import com.example.ejercicio1_pruebaprogramacionandroid2.screens.ViewScheduleScreen
 
 @Composable
 fun AppNavigation() {
@@ -28,9 +29,9 @@ fun AppNavigation() {
             )
         }
 
-        // Pantalla para ver el horario (pendiente de implementar)
+        // Pantalla para ver el horario
         composable("viewSchedule") {
-            //ViewScheduleScreen() // Implementaremos esta pantalla luego
+            ViewScheduleScreen()
         }
 
         // Pantalla para consultar qué clase toca ahora (pendiente de implementar)
