@@ -16,8 +16,10 @@ import com.google.firebase.database.FirebaseDatabase
 fun AddClassScreen(onClassAdded: () -> Unit = {}) {
     val database = FirebaseDatabase.getInstance().reference
     val nombre = remember { mutableStateOf("") }
-    val dia = remember { mutableStateOf("") }
+    val dia = remember { mutableStateOf("Lunes") } // Día predeterminado
     val hora = remember { mutableStateOf("") }
+    val dias = listOf("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
+    var expanded by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -35,12 +37,30 @@ fun AddClassScreen(onClassAdded: () -> Unit = {}) {
             modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
         )
 
-        OutlinedTextField(
-            value = dia.value,
-            onValueChange = { dia.value = it },
-            label = { Text("Día (ej. Lunes)") },
-            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
-        )
+        // Selector para el día
+        Box {
+            OutlinedButton(
+                onClick = { expanded = true },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(text = "Día: ${dia.value}")
+            }
+
+            DropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                dias.forEach { diaSeleccionado ->
+                    DropdownMenuItem(
+                        text = { Text(text = diaSeleccionado) },
+                        onClick = {
+                            dia.value = diaSeleccionado
+                            expanded = false
+                        }
+                    )
+                }
+            }
+        }
 
         OutlinedTextField(
             value = hora.value,
@@ -54,7 +74,7 @@ fun AddClassScreen(onClassAdded: () -> Unit = {}) {
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Button(onClick = {
-                if (nombre.value.isNotBlank() && dia.value.isNotBlank() && hora.value.isNotBlank()) {
+                if (nombre.value.isNotBlank() && hora.value.isNotBlank()) {
                     val nuevaClase = mapOf(
                         "nombre" to nombre.value,
                         "dia" to dia.value,
@@ -69,13 +89,13 @@ fun AddClassScreen(onClassAdded: () -> Unit = {}) {
                             Log.e("AddClassScreen", "Error al añadir clase: ${it.message}")
                         }
                 } else {
-                    Log.e("AddClassScreen", "Por favor, rellena todos los campos")
+                    Log.e("AddClassScreen", "Por favor, rellena todos los campos obligatorios")
                 }
             }) {
                 Text("Añadir")
             }
 
-            Button(onClick = { nombre.value = ""; dia.value = ""; hora.value = "" }) {
+            Button(onClick = { nombre.value = ""; dia.value = "Lunes"; hora.value = "" }) {
                 Text("Cancelar")
             }
         }
