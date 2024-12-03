@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.ejercicio1_pruebaprogramacionandroid2.screens.AddClassScreen
+import com.example.ejercicio1_pruebaprogramacionandroid2.screens.CurrentClassScreen
 import com.example.ejercicio1_pruebaprogramacionandroid2.screens.MainScreen
 import com.example.ejercicio1_pruebaprogramacionandroid2.screens.ViewScheduleScreen
 
@@ -34,9 +35,9 @@ fun AppNavigation() {
             ViewScheduleScreen()
         }
 
-        // Pantalla para consultar qué clase toca ahora (pendiente de implementar)
+
         composable("currentClass") {
-            //CurrentClassScreen() // Implementaremos esta pantalla luego
+            CurrentClassScreen()
         }
     }
 }
