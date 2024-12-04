@@ -3,6 +3,8 @@
 Link:
 https://github.com/Rodrivdlc/Ejercicio1_PruebaProgramacionAndroid2.git
 
+VIDEO YOUTUBE: https://youtu.be/2k_pbwITENE
+
 ## Este es el ejercico 1 de 3 de la prueba de Android 2
 
 Links a los otros ejercicios:
